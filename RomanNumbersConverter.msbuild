@@ -30,8 +30,8 @@
 	************************************************************************
 	-->
 	<Target Name="BuildApp">
-		<!--<CallTarget Targets="Clear" />
-		<CallTarget Targets="BuildDevelopPrepare" />-->
+		<!--<CallTarget Targets="Clear" />-->
+		<CallTarget Targets="BuildDevelopPrepare" />
 		<CallTarget Targets="BuildAppServer" />
 		
 	</Target>
