@@ -17,11 +17,7 @@ pipeline {
     stage('Build App with MsBuild') {
 		steps {
 			echo 'Build App with MsBuild'
-			
-			bat("echo 'Haj'")
-			
-			${novaMsBuild} ${nologo} /target:BuildApp
-			
+
 			bat "\"${tool 'MSBuild'}\" RomanNumbersConverter.sln /p:Configuration=Release /p:Platform=\"Any CPU\""
 	
 		}
