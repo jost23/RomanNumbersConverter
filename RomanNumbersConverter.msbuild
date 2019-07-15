@@ -29,7 +29,7 @@
 	Task to simply build
 	************************************************************************
 	-->
-	<Target Name="BuildDevelop">
+	<Target Name="BuildApp">
 		<CallTarget Targets="Clear" />
 		<CallTarget Targets="BuildDevelopPrepare" />
 		<CallTarget Targets="BuildAppServer" />

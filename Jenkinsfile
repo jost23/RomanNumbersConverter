@@ -1,22 +1,24 @@
 pipeline {
   agent any
   
+  def msbuild =  "%windir%/Microsoft.NET/Framework/v4.0.30319/MsBuild.exe"
+  def novaMsBuild = "RomanNumbersConverter.msbuild"
+  def nologo = "/nologo"
+  
   triggers {
     pollSCM('') // Enabling being build on Push
   }
   
   stages {
-    stage('Step 1') {
-      steps {
-	    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} in branch ${env.GIT_BRANCH}"
-      }
+    stage('Build App with MsBuild') {
+    	echo "Build App with MsBuild"
+    	def exitStatus = bat(returnStatus: true, script: "${msbuild} ${novaMsBuild} ${nologo} /target:BuildApp")
+        if (exitStatus != 0){
+            currentBuild.result = 'FAILURE'
+            error 'Frontends - failed'
+        }
     }
-	stage('Git 2') {
-      steps {
-        echo "Step 2"
-      }
-    }
-	
+
 	stage('Step 3') {
 		when {
 			// check if branch is master
