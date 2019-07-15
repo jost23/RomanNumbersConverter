@@ -15,7 +15,9 @@ pipeline {
   stages {
   
     stage('Build App with MsBuild') {
-    	echo 'Build App with MsBuild'
+		steps {
+			echo 'Build App with MsBuild'
+		}
     }
 
 	stage('Step 3') {
