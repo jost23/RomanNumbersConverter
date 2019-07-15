@@ -15,12 +15,7 @@ pipeline {
   stages {
   
     stage('Build App with MsBuild') {
-    	echo "Build App with MsBuild"
-    	exitStatus = bat(returnStatus: true, script: "${msbuild} ${novaMsBuild} ${nologo} /target:BuildApp")
-        if (exitStatus != 0){
-            currentBuild.result = 'FAILURE'
-            error 'Frontends - failed'
-        }
+    	echo 'Build App with MsBuild'
     }
 
 	stage('Step 3') {
