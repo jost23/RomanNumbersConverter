@@ -16,7 +16,7 @@ pipeline {
   
     stage('Build App with MsBuild') {
 		steps {
-			echo '${env.msbuild}'
+			echo ${env.msbuild}
 
 		}
 	
