@@ -1,15 +1,14 @@
 pipeline {
   agent any
-  
-  def msbuild =  "%windir%/Microsoft.NET/Framework/v4.0.30319/MsBuild.exe"
-  def novaMsBuild = "RomanNumbersConverter.msbuild"
-  def nologo = "/nologo"
-  
+    
   triggers {
     pollSCM('') // Enabling being build on Push
   }
   
   stages {
+    def msbuild =  "%windir%/Microsoft.NET/Framework/v4.0.30319/MsBuild.exe"
+	def novaMsBuild = "RomanNumbersConverter.msbuild"
+	def nologo = "/nologo"
     stage('Build App with MsBuild') {
     	echo "Build App with MsBuild"
     	def exitStatus = bat(returnStatus: true, script: "${msbuild} ${novaMsBuild} ${nologo} /target:BuildApp")
