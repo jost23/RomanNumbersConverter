@@ -18,7 +18,7 @@ pipeline {
 		steps {
 			echo "${env.msbuild}"
 			//bat "${env.msbuild} ${novaMsBuild} /nologo /target:BuildApp"
-			bat("${env.msbuild} RomanNumbersConverter.msbuild /nologo /target:BuildApp")
+			bat("${env.msbuild} RomanNumbersConverter.msbuild /target:BuildApp")
 		}
 	
     }
