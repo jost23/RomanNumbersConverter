@@ -17,7 +17,8 @@ pipeline {
     stage('Build App with MsBuild') {
 		steps {
 			echo "${env.msbuild}"
-			bat "${env.msbuild} ${novaMsBuild} /nologo /target:BuildApp"
+			//bat "${env.msbuild} ${novaMsBuild} /nologo /target:BuildApp"
+			cmd_exec('%windir%\Microsoft.NET\Framework\v4.0.30319\msbuild.exe RomanNumbersConverter.msbuild /nologo /target:BuildApp')
 		}
 	
     }
