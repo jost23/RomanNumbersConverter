@@ -16,10 +16,8 @@ pipeline {
   
     stage('Build App with MsBuild') {
 		steps {
-			echo 'Build App with MsBuild'
+			echo '${env.msbuild}'
 
-			bat "\"${tool 'MSBuild'}\" RomanNumbersConverter.sln /p:Configuration=Release /p:Platform=\"Any CPU\""
-	
 		}
 	
     }
