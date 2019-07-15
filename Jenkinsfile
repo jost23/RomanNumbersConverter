@@ -11,6 +11,17 @@ pipeline {
         echo "Step 2"
       }
     }
+	
+	stage('Step 3') {
+		when {
+			// check if branch is master
+            branch 'master'
+        }
+		steps {
+			echo "This is master"
+		}
+	}
+	
   }
   post {
         always {
