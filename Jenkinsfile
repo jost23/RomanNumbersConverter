@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Step 1) {
+    stage('Step 1') {
       steps {
 	    echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
       }
