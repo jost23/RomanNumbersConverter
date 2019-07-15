@@ -6,5 +6,10 @@ pipeline {
         echo "Kje si, from Jenkins file"
       }
     }
+	stage('Git 2') {
+      steps {
+        echo "Step 2"
+      }
+    }
   }
 }
