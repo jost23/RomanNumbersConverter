@@ -1,0 +1,10 @@
+pipeline {
+  agent any
+  stages {
+    stage('Jnk2') {
+      steps {
+        echo "Kje si, from Jenkins file - Jenkinsfile 2"
+      }
+    }
+  }
+}
