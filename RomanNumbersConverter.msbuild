@@ -1,0 +1,62 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+	<!--
+	************************************************************************
+	Define properties - constants
+	************************************************************************
+	-->
+
+	<!-- import database server and name for DAL generator -->
+	<PropertyGroup>
+		<SolutionFile>RomanNumbersConverter.sln</SolutionFile>
+	</PropertyGroup>
+	
+	<!--
+	************************************************************************
+	Task to clean up output directory.
+	************************************************************************
+	-->
+	<Target Name="Clear">
+		<RemoveDir Directories="$(MSBuildProjectDirectory)\Deploy" Condition = "Exists('$(MSBuildProjectDirectory)\Deploy')" />
+	</Target>
+
+
+
+	<!--
+	************************************************************************
+	ENTRY POINT
+	Task to simply build
+	************************************************************************
+	-->
+	<Target Name="BuildDevelop">
+		<CallTarget Targets="Clear" />
+		<CallTarget Targets="BuildDevelopPrepare" />
+		<CallTarget Targets="BuildAppServer" />
+		
+	</Target>
+	
+	<!--
+	************************************************************************
+	Task to build application server sources
+	************************************************************************
+	-->
+	<Target Name="BuildAppServer">
+		<Message Text="Building solution..." Importance="high"/>
+		<MSBuild Projects="$(SolutionFile)" Properties="Configuration=$(Configuration);Platform=$(Platform);OutputPath=$(MSBuildProjectDirectory)\Deploy" />
+	</Target>
+	<Target Name="BuildDevelopPrepare">
+		<!-- Properties must be set in special task, otherwise they are not visible to subsequent steps -->
+		<PropertyGroup>
+			<Configuration>Release</Configuration>
+			<Platform>Any CPU</Platform>
+		</PropertyGroup>
+	</Target>
+	<Target Name="Clear">
+		<RemoveDir Directories="$(MSBuildProjectDirectory)\Deploy" />
+	</Target>
+
+
+
+	
+</Project>

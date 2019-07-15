@@ -5,8 +5,6 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumberConverter", "RomanNumberConverter\RomanNumberConverter.csproj", "{0D720C1B-42D8-453B-9808-113D90F8508E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RomanNumberConverterTest", "RomanNumberConverterTest\RomanNumberConverterTest.csproj", "{3F021167-C7FD-47AD-81D6-ED3BF25A295D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
